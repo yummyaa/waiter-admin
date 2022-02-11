@@ -16,5 +16,5 @@ mybatis-plus:
 waiterxiaoyy:
   jwt:
     header: Authorization
-    expire: 604800 #7天，秒单位
+    expire: 604800 #604800  7天，秒单位
     secret: ji8n3439n439n43ld9ne9343fdfer49h # 秘钥

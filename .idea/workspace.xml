@@ -1,11 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1570c830-4459-4625-a92f-05669e49d897" name="Default Changelist" comment="" />
+    <list default="true" id="1570c830-4459-4625-a92f-05669e49d897" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_58.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/common/dto/PythonDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/common/dto/RecognizeDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/AttendanceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/SysCollegeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/entity/SysClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/entity/SysClassStudent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/entity/SysCollege.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/entity/SysCollegeClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/entity/SysCollegeCounselor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/entity/SysCollegeTeacher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/mapper/SysClassMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/mapper/SysClassStudentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/mapper/SysCollegeClassMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/mapper/SysCollegeCounselorMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/mapper/SysCollegeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/mapper/SysCollegeTeacherMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/AttendanceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/impl/AttendanceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/utils/HttpClientUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysClass1Mapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysClassStudentMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysCollegeClassMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysCollegeCounselorMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysCollegeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysCollegeTeacherMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Waiter-Admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Waiter-Admin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/security/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/security/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/BaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/BaseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/security/JwtAuthenticationEntryPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/security/JwtAuthenticationEntryPoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/security/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/security/JwtAuthenticationFilter.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+        <option value="FxmlFile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -15,22 +70,48 @@
     </option>
   </component>
   <component name="ProjectId" id="2435aeW1m5ILxRu92Eb5WdOUM9u" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Waiter-Vue-Web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mapper" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\11-graduation-project\Waiter-Admin\src\main\resources\mapper" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.VueAdminLearnApplication">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.waiterxiaoyy.utils.Test" />
+      <module name="Waiter-Admin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.waiterxiaoyy.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="VueAdminLearnApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Waiter-Admin" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.waiterxiaoyy.VueAdminLearnApplication" />
@@ -38,6 +119,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -49,7 +135,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642846494541</updated>
-      <workItem from="1642846497452" duration="550000" />
+      <workItem from="1642846497452" duration="11150000" />
+      <workItem from="1642996486068" duration="3678000" />
+      <workItem from="1643077524352" duration="2135000" />
+      <workItem from="1643184379667" duration="4837000" />
+      <workItem from="1644155842533" duration="4532000" />
+      <workItem from="1644562544457" duration="2252000" />
+      <workItem from="1644583703653" duration="483000" />
     </task>
     <servers />
   </component>
@@ -57,29 +149,77 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="486" y="220" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1644583572462">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="486" y="220" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1644583572462" />
+    <state x="574" y="127" key="#com.intellij.ide.util.MemberChooser" timestamp="1642854977135">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="574" y="127" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1642854977135" />
     <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1642846639754">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1642846639754" />
-    <state width="1493" height="265" key="GridCell.Tab.0.bottom" timestamp="1642846595851">
+    <state width="1493" height="137" key="GridCell.Tab.0.bottom" timestamp="1644584348244">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1642846595851" />
-    <state width="1493" height="265" key="GridCell.Tab.0.center" timestamp="1642846595850">
+    <state width="1493" height="137" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1644584348244" />
+    <state width="1493" height="137" key="GridCell.Tab.0.center" timestamp="1644584348244">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1642846595850" />
-    <state width="1493" height="265" key="GridCell.Tab.0.left" timestamp="1642846595850">
+    <state width="1493" height="137" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1644584348244" />
+    <state width="1493" height="137" key="GridCell.Tab.0.left" timestamp="1644584348244">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1642846595850" />
-    <state width="1493" height="265" key="GridCell.Tab.0.right" timestamp="1642846595850">
+    <state width="1493" height="137" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1644584348244" />
+    <state width="1493" height="137" key="GridCell.Tab.0.right" timestamp="1644584348244">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1642846595850" />
+    <state width="1493" height="137" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1644584348244" />
+    <state width="1493" height="137" key="GridCell.Tab.1.bottom" timestamp="1644584348244">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="137" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1644584348244" />
+    <state width="1493" height="137" key="GridCell.Tab.1.center" timestamp="1644584348244">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="137" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1644584348244" />
+    <state width="1493" height="137" key="GridCell.Tab.1.left" timestamp="1644584348244">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="137" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1644584348244" />
+    <state width="1493" height="137" key="GridCell.Tab.1.right" timestamp="1644584348244">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="137" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1644584348244" />
+    <state width="1493" height="137" key="GridCell.Tab.2.bottom" timestamp="1644584348245">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="137" key="GridCell.Tab.2.bottom/0.0.1536.834@0.0.1536.834" timestamp="1644584348245" />
+    <state width="1493" height="137" key="GridCell.Tab.2.center" timestamp="1644584348245">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="137" key="GridCell.Tab.2.center/0.0.1536.834@0.0.1536.834" timestamp="1644584348245" />
+    <state width="1493" height="137" key="GridCell.Tab.2.left" timestamp="1644584348245">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="137" key="GridCell.Tab.2.left/0.0.1536.834@0.0.1536.834" timestamp="1644584348245" />
+    <state width="1493" height="137" key="GridCell.Tab.2.right" timestamp="1644584348245">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="137" key="GridCell.Tab.2.right/0.0.1536.834@0.0.1536.834" timestamp="1644584348245" />
     <state x="270" y="59" key="SettingsEditor" timestamp="1642846531887">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="270" y="59" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1642846531887" />
+    <state x="381" y="334" key="com.intellij.ide.util.TipDialog" timestamp="1644581187749">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="381" y="334" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1644581187749" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1644584070497">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1644584070497" />
   </component>
 </project>

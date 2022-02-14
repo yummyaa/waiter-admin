@@ -41,6 +41,10 @@ public class BaseController {
     @Autowired
     AttendanceService attendanceService;
 
+
+    @Autowired
+    SysDeptService sysDeptService;
+
     /**
      * 获取页面
      * @return

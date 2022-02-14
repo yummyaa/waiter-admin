@@ -86,7 +86,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Override
     public void clearUserAuthorityInfo(String username) {
-        redisUtil.del("GrantedAuthority:", username);
+        redisUtil.del("GrantedAuthority:" + username);
     }
 
     @Override
@@ -95,9 +95,12 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         List<SysUser> sysUsers = this.list(new QueryWrapper<SysUser>()
                 .inSql("id", "select user_id from sys_user_role where role_id = " + roleId));
 
-        sysUsers.forEach(u -> {
-            this.clearUserAuthorityInfo(u.getUsername());
-        });
+        for(int i = 0; i < sysUsers.size(); i++) {
+            this.clearUserAuthorityInfo(sysUsers.get(i).getUsername());
+        }
+//        sysUsers.forEach(u -> {
+//            this.clearUserAuthorityInfo(u.getUsername());
+//        });
 
     }
 

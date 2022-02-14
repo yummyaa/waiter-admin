@@ -14,9 +14,9 @@ import java.util.List;
 @Data
 public class CollegeClassDto {
     private Long id;
+    private Long collegeId;
     private String label;
     private List<CollegeClassDto> children;
+    private int type;
     private int statu;
-    private String created;
-    private String updated;
 }

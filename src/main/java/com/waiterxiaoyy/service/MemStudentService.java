@@ -12,4 +12,5 @@ import com.waiterxiaoyy.common.lang.Result;
  */
 public interface MemStudentService {
 
+    Result getCollegeClassTree();
 }

@@ -18,12 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/mem/student")
+@RequestMapping("/mem/stu")
 public class MemStudentController {
 
     @Autowired
     MemStudentService studentService;
 
-
+    @GetMapping("/getcctree")
+    @PreAuthorize("hasAuthority('mem:stu:list')")
+    public Result getCollegeClassTree() {
+        return studentService.getCollegeClassTree();
+    }
 
 }

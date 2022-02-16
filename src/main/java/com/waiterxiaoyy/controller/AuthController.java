@@ -6,7 +6,10 @@ import com.waiterxiaoyy.common.lang.Const;
 import com.waiterxiaoyy.common.lang.Result;
 import com.waiterxiaoyy.entity.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import sun.misc.BASE64Encoder;
 
@@ -70,12 +73,19 @@ public class AuthController extends BaseController {
 
         SysUser sysUser = sysUserService.getByUsername(principal.getName());
 
-        return Result.succ(MapUtil.builder()
-                .put("id", sysUser.getId())
-                .put("username", sysUser.getUsername())
-                .put("avatar", sysUser.getAvatar())
-                .put("created", sysUser.getCreated())
-                .map()
-        );
+        return Result.succ(sysUser);
+    }
+
+    /**
+     * 用户更新自己的信息
+     * @param sysUser
+     * @return
+     */
+    @PostMapping("/sys/updateme")
+    public Result userInfo(@Validated @RequestBody SysUser sysUser) {
+
+        sysUserService.updateById(sysUser);
+
+        return Result.succ(sysUser);
     }
 }

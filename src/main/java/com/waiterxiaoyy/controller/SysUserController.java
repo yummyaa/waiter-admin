@@ -131,6 +131,9 @@ public class SysUserController extends BaseController {
         return Result.succ("");
     }
 
+
+
+
     @PostMapping("/repass")
     @PreAuthorize("hasAuthority('sys:user:repass')")
     public Result repass(@RequestBody Long userId) {
@@ -160,4 +163,5 @@ public class SysUserController extends BaseController {
         sysUserService.updateById(sysUser);
         return Result.succ("");
     }
+
 }

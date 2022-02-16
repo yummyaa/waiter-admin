@@ -1,17 +1,18 @@
 package com.waiterxiaoyy.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.waiterxiaoyy.common.dto.CollegeClassDto;
 import com.waiterxiaoyy.common.lang.Result;
 import com.waiterxiaoyy.entity.*;
 import com.waiterxiaoyy.mapper.SysDeptMapper;
+import com.waiterxiaoyy.mapper.MemStudentMapper;
 import com.waiterxiaoyy.service.MemStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * 功能描述：
@@ -21,7 +22,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * @Version 1.0
  */
 @Service
-public class MemStudentServieImpl  implements MemStudentService {
+public class MemStudentServieImpl extends ServiceImpl<MemStudentMapper, SysStudent> implements MemStudentService {
 
 
     @Autowired

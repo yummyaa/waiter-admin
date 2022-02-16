@@ -1,17 +1,17 @@
 package com.waiterxiaoyy.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.waiterxiaoyy.common.lang.Result;
+import com.waiterxiaoyy.entity.SysClassStudent;
 import com.waiterxiaoyy.entity.SysStudent;
 
 /**
  * 功能描述：
  *
  * @Author WaiterXiaoYY
- * @Date 2022/2/13 20:35
+ * @Date 2022/2/16 19:37
  * @Version 1.0
  */
-public interface MemStudentService extends IService<SysStudent> {
+public interface MemClassStudentService extends IService<SysClassStudent> {
 
-    Result getCollegeClassTree();
+    SysClassStudent selectOne(SysStudent sysStudent);
 }

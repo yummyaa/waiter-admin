@@ -1,7 +1,11 @@
 package com.waiterxiaoyy.security;
 
 import cn.hutool.json.JSONUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.waiterxiaoyy.common.lang.Result;
+import com.waiterxiaoyy.entity.SysUser;
+import com.waiterxiaoyy.mapper.SysUserMapper;
+import com.waiterxiaoyy.service.SysUserService;
 import com.waiterxiaoyy.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -13,12 +17,16 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 @Component
 public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
 	@Autowired
 	JwtUtils jwtUtils;
+
+	@Autowired
+	SysUserMapper sysUserMapper;
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
@@ -28,6 +36,11 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 		// 生成jwt，并放置到请求头中
 		String jwt = jwtUtils.generateToken(authentication.getName());
 		response.setHeader(jwtUtils.getHeader(), jwt);
+
+		SysUser sysUser = new SysUser();
+		sysUser.setLastLogin(LocalDateTime.now());
+
+		sysUserMapper.update(sysUser, new QueryWrapper<SysUser>().eq("username", authentication.getName()));
 
 		Result result = Result.succ("");
 

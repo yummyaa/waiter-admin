@@ -28,6 +28,12 @@ public class SysUser extends BaseEntity {
     @NotBlank(message = "用户名不能为空")
     private String username;
 
+    private String nickname;
+
+    private Integer sex;
+
+    private String zzstatus;
+
     private String password;
 
     private String avatar;

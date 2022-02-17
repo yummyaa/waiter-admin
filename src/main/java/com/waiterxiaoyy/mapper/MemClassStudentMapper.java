@@ -1,7 +1,9 @@
 package com.waiterxiaoyy.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.waiterxiaoyy.entity.SysClassStudent;
+import com.waiterxiaoyy.entity.SysStudent;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -13,4 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface MemClassStudentMapper extends BaseMapper<SysClassStudent> {
+    Page<SysStudent> getCLassStudentList(Page page, Integer classId, String studentName);
 }

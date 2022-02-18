@@ -107,4 +107,12 @@ public class MemStudentController extends BaseController {
         return Result.succ("学生信息合法");
     }
 
+    @PostMapping("/delete")
+    public Result delete(@RequestBody List<SysStudent> sysStudentList) {
+        for (int i = 0; i < sysStudentList.size(); i++) {
+            studentService.remove(new QueryWrapper<SysStudent>().eq("student_id", sysStudentList.get(i).getStudentId()));
+            memClassStudentService.remove(new QueryWrapper<SysClassStudent>().eq("student_id", sysStudentList.get(i).getStudentId()).eq("class_id", sysStudentList.get(i).getClassId()));
+        }
+        return Result.succ("删除成功");
+    }
 }

@@ -3,7 +3,7 @@
 <mapper namespace="com.waiterxiaoyy.mapper.MemClassStudentMapper">
 
     <select id="getCLassStudentList" resultType="com.waiterxiaoyy.entity.SysStudent">
-        select ss.id, ss.student_id, ss.student_name from sys_student as ss
+        select ss.id, ss.student_id, ss.student_name, scs.class_id from sys_student as ss
         left join sys_class_student as scs
         on ss.student_id = scs.student_id
         where scs.class_id = #{classId}

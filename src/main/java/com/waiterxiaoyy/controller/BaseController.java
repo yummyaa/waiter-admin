@@ -41,6 +41,8 @@ public class BaseController {
     @Autowired
     AttendanceService attendanceService;
 
+    @Autowired
+    SysFaceService sysFaceService;
 
     @Autowired
     SysDeptService sysDeptService;

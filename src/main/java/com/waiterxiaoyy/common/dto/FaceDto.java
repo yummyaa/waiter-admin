@@ -12,8 +12,8 @@ import java.io.Serializable;
  * @Version 1.0
  */
 @Data
-public class RecognizeDto implements Serializable {
+public class FaceDto implements Serializable {
 
-    public String username;
-    public String nowimage;
+    public String studentId;
+    public String nowImage;
 }

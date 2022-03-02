@@ -1,6 +1,6 @@
 package com.waiterxiaoyy.service;
 
-import com.waiterxiaoyy.common.dto.RecognizeDto;
+import com.waiterxiaoyy.common.dto.FaceDto;
 import com.waiterxiaoyy.common.lang.Result;
 
 /**
@@ -11,5 +11,5 @@ import com.waiterxiaoyy.common.lang.Result;
  * @Version 1.0
  */
 public interface AttendanceService {
-    Result recognize(RecognizeDto recognizeDto);
+    Result recognize(FaceDto faceDto);
 }

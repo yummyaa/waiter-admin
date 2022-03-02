@@ -1,10 +1,8 @@
 package com.waiterxiaoyy.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.waiterxiaoyy.common.dto.PythonDto;
-import com.waiterxiaoyy.common.dto.RecognizeDto;
+import com.waiterxiaoyy.common.dto.FaceDto;
 import com.waiterxiaoyy.common.lang.Result;
 import com.waiterxiaoyy.service.AttendanceService;
 import com.waiterxiaoyy.utils.HttpClientUtil;
@@ -29,26 +27,29 @@ public class AttendanceServiceImpl implements AttendanceService {
     HttpClientUtil httpClientUtil;
 
     @Override
-    public Result recognize(RecognizeDto recognizeDto) {
-        String url = "http://192.168.1.101:8899/url";
-        Map map = new HashMap();
-        map.put("username", recognizeDto.getUsername());
-        map.put("nowimage", recognizeDto.getNowimage());
-        List<PythonDto> jsonArray = JSONArray.parseArray(HttpClientUtil.doPost(url, map), PythonDto.class);
+    public Result recognize(FaceDto faceDto) {
+        try {
+            String url = "http://172.27.184.8:8899/url";
+            Map map = new HashMap();
+            map.put("username", faceDto.getStudentId());
+            map.put("nowimage", faceDto.getNowImage());
+            List<PythonDto> jsonArray = JSONArray.parseArray(HttpClientUtil.doPost(url, map), PythonDto.class);
 
-        if(jsonArray.size() <= 0) {
-            return Result.fail("服务器错误");
-        }
-        PythonDto pythonDto = jsonArray.get(0);
-        if(pythonDto.getCode() == 200) {
-            return Result.succ("同一个人");
-        } else if(pythonDto.getCode() == 201) {
-            return Result.fail("不是同一个人");
-        } else {
+            if(jsonArray.size() <= 0) {
+                return Result.fail("服务器错误");
+            }
+            PythonDto pythonDto = jsonArray.get(0);
+            if(pythonDto.getCode() == 200) {
+                return Result.succ(200, "同一个人" ,null);
+            } else if(pythonDto.getCode() == 201) {
+                return Result.succ(200, "不是同一个人", null);
+            } else {
+                return Result.fail("服务器错误");
+            }
+        } catch (Exception e) {
             return Result.fail("服务器错误");
         }
     }
 
-    public static void main(String[] args) {
-    }
+
 }

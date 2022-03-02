@@ -64,6 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/login",
             "/logout",
             "/captcha",
+            "/localPath/**",
             "/favicon.ico",
     };
     protected void configure(HttpSecurity http) throws Exception {
@@ -104,6 +105,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         ;
 
     }
+
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

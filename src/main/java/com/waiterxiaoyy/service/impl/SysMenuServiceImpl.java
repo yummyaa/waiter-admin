@@ -120,7 +120,6 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
             }
         }
 
-        System.out.println(JSONUtil.toJsonStr(finalMenus));
         return finalMenus;
     }
 }

@@ -16,8 +16,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
-    @Value("${waiterxiaoyy.file.faceStorePath}")
-    private String facePath;
+    @Value("${waiterxiaoyy.file.LocalPath}")
+    private String LocalPath;
     /**
      * springboot 无法直接访问静态资源，需要放开资源访问路径。
      * 添加静态资源文件，外部可以直接访问地址
@@ -26,7 +26,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // 意思是我们通过项目访问资源路径为/localPath开头的将会被映射到D:/Temp下
-        registry.addResourceHandler("/localPath/**").addResourceLocations("file:///" + facePath + "/");
+        registry.addResourceHandler("/localPath/**").addResourceLocations("file:///" + LocalPath + "/");
     }
 
 }

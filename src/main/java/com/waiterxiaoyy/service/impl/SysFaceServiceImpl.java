@@ -2,12 +2,10 @@ package com.waiterxiaoyy.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.waiterxiaoyy.common.dto.FaceDto;
 import com.waiterxiaoyy.common.lang.Result;
 import com.waiterxiaoyy.entity.SysFace;
 import com.waiterxiaoyy.mapper.SysFaceMapper;
 import com.waiterxiaoyy.service.SysFaceService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,13 +23,13 @@ import java.time.LocalDateTime;
  */
 @Service
 public class SysFaceServiceImpl extends ServiceImpl<SysFaceMapper, SysFace> implements SysFaceService {
-    @Value("${waiterxiaoyy.file.faceStorePath}")
-    private String facePath;
+    @Value("${waiterxiaoyy.file.LocalPath}")
+    private String localPath;
 
 
     @Override
     public Result saveFace(MultipartFile uploadFile, String studentId) throws IOException {
-        String tempPath = facePath;
+        String tempPath = localPath + "/faceImg";
         File file = new File(tempPath);
         // Temp文件夹是否存在
         if (!file.exists()) {
@@ -47,17 +45,17 @@ public class SysFaceServiceImpl extends ServiceImpl<SysFaceMapper, SysFace> impl
         if(sysFace == null) {
             sysFace = new SysFace();
             sysFace.setStudentId(studentId);
-            sysFace.setFaceUrl("/localPath/" + uploadFile.getOriginalFilename());
+            sysFace.setFaceUrl("/localPath/faceImg/" + uploadFile.getOriginalFilename());
             sysFace.setCreated(LocalDateTime.now());
             save(sysFace);
         } else {
             sysFace.setStudentId(studentId);
-            sysFace.setFaceUrl("/localPath/" + uploadFile.getOriginalFilename());
+            sysFace.setFaceUrl("/localPath/faceImg/" + uploadFile.getOriginalFilename());
             sysFace.setUpdated(LocalDateTime.now());
             updateById(sysFace);
         }
 
-        System.out.println(facePath);
+        System.out.println(localPath);
         System.out.println(studentId);
         System.out.println(file);
         return Result.succ(sysFace);

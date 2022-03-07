@@ -55,7 +55,7 @@ public class MemStudentController extends BaseController {
 
 
     @PostMapping("/addStuInClass")
-    @PreAuthorize(("hasAuthority('mem:stu:add')"))
+    @PreAuthorize("hasAuthority('mem:stu:add')")
     public Result addStudentInClass(@RequestBody List<SysStudent> sysStudentList) {
         if(sysStudentList.size() == 1) {
             if(memClassStudentService.selectOne(sysStudentList.get(0)) != null) {

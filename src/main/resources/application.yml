@@ -19,4 +19,4 @@ waiterxiaoyy:
     expire: 604800 #604800  7天，秒单位
     secret: ji8n3439n439n43ld9ne9343fdfer49h # 秘钥
   file:
-    faceStorePath: D:/FaceImg #文件存储根目录
+    LocalPath: D:/LocalPath #文件存储根目录

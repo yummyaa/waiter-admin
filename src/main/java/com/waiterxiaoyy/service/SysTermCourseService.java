@@ -12,5 +12,5 @@ import com.waiterxiaoyy.entity.SysTermCourse;
  * @Version 1.0
  */
 public interface SysTermCourseService extends IService<SysTermCourse> {
-    Result getTermCourseClass(String query);
+    Result getTermCourseClass();
 }

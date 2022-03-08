@@ -25,8 +25,8 @@ public class SysTermCourseServiceImpl extends ServiceImpl<SysTermCourseMapper, S
 
 
     @Override
-    public Result getTermCourseClass(String query) {
-        List<SysTermCourse> sysTermCourseList = this.list(new QueryWrapper<SysTermCourse>().orderByAsc("orderNum").like(StrUtil.isNotBlank(query), "name", query));
+    public Result getTermCourseClass() {
+        List<SysTermCourse> sysTermCourseList = this.list(new QueryWrapper<SysTermCourse>().orderByAsc("orderNum"));
         List<SysTermCourse> tree = builTree(sysTermCourseList);
         return Result.succ(200, "", tree);
     }

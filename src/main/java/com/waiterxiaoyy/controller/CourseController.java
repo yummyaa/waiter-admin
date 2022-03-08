@@ -89,8 +89,8 @@ public class CourseController {
 
 
     @GetMapping("/getTermCourse")
-    public Result getTermCourse(String query) {
-        return sysTermCourseService.getTermCourseClass(query);
+    public Result getTermCourse() {
+        return sysTermCourseService.getTermCourseClass();
     }
 
     @PostMapping("/updateCourse")

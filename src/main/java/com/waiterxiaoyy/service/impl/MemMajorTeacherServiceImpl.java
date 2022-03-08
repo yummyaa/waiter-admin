@@ -3,6 +3,7 @@ package com.waiterxiaoyy.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.waiterxiaoyy.entity.SysMajorTeacher;
 import com.waiterxiaoyy.mapper.MemMajorTeacherMapper;
+import com.waiterxiaoyy.service.MemMajorTeacherService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,5 +14,5 @@ import org.springframework.stereotype.Service;
  * @Version 1.0
  */
 @Service
-public class MemMajorTeacherServiceImpl extends ServiceImpl<MemMajorTeacherMapper, SysMajorTeacher> {
+public class MemMajorTeacherServiceImpl extends ServiceImpl<MemMajorTeacherMapper, SysMajorTeacher> implements MemMajorTeacherService {
 }

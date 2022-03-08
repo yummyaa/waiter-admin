@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.waiterxiaoyy.entity.SysMajorTeacher;
 import com.waiterxiaoyy.entity.SysTeacher;
+import org.springframework.stereotype.Repository;
 
 /**
  * 功能描述：
@@ -12,6 +13,7 @@ import com.waiterxiaoyy.entity.SysTeacher;
  * @Date 2022/3/3 22:32
  * @Version 1.0
  */
+@Repository
 public interface MemMajorTeacherMapper extends BaseMapper<SysMajorTeacher> {
 
     Page<SysTeacher> getMajorTeacherList(Page page, Integer majorId, String teacherName);

@@ -27,7 +27,7 @@ public class SysTeacher extends BaseEntity {
     @NotBlank(message = "姓名不能为空")
     private String teacherName;
 
-    private LocalDateTime beginTime;
+    private String beginTime;
 
     @TableField(exist = false)
     private Long majorId;

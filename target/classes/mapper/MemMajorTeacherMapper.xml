@@ -8,7 +8,7 @@
         on st.teacher_id = smt.teacher_id
         where smt.major_id = #{majorId}
         <if test="teacherName != null and teacherName != ''">
-            and smt.teacher_name like CONCAT('%',#{teacherName},'%')
+            and st.teacher_name like CONCAT('%',#{teacherName},'%')
         </if>
     </select>
 </mapper>

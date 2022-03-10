@@ -7,6 +7,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * 功能描述：
@@ -29,7 +30,14 @@ public class SysTeacher extends BaseEntity {
 
     private String beginTime;
 
+    private String identityStr;
+
+    @TableField(exist = false)
+    private List<String> identity;
+
     @TableField(exist = false)
     private Long majorId;
+
+
 
 }

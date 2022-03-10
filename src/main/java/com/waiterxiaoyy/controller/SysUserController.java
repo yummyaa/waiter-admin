@@ -7,9 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.waiterxiaoyy.common.dto.PassDto;
 import com.waiterxiaoyy.common.lang.Const;
 import com.waiterxiaoyy.common.lang.Result;
-import com.waiterxiaoyy.entity.SysRole;
-import com.waiterxiaoyy.entity.SysUser;
-import com.waiterxiaoyy.entity.SysUserRole;
+import com.waiterxiaoyy.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -131,7 +129,55 @@ public class SysUserController extends BaseController {
         return Result.succ("");
     }
 
+    @PostMapping("/distributeStuUser")
+    @PreAuthorize("hasAuthority('sys:user:dist')")
+    public Result distributeStuUser(@RequestBody List<SysStudent> sysStudentList) {
+        for(SysStudent sysStudent : sysStudentList) {
+            if(sysUserService.getOne(new QueryWrapper<SysUser>().eq("username", sysStudent.getStudentId())) != null) {
+                continue;
+            }
+            SysUser sysUser = new SysUser();
+            sysUser.setUsername(sysStudent.getStudentId());
+            sysUser.setNickname(sysStudent.getStudentName());
+            sysUser.setCreated(LocalDateTime.now());
+            sysUser.setStatu(Const.STATUS_ON);
 
+            // 默认密码
+            String password = passwordEncoder.encode(Const.DEFULT_PASSWORD);
+            sysUser.setPassword(password);
+
+            // 默认头像
+            sysUser.setAvatar(Const.DEFULT_AVATAR);
+
+            sysUserService.save(sysUser);
+        }
+        return Result.succ("分配用户成功");
+    }
+
+    @PostMapping("/distributeTeacUser")
+    @PreAuthorize("hasAuthority('sys:user:dist')")
+    public Result distributeTeacUser(@RequestBody List<SysTeacher> sysTeacherList) {
+        for(SysTeacher sysTeacher : sysTeacherList) {
+            if(sysUserService.getOne(new QueryWrapper<SysUser>().eq("username", sysTeacher.getTeacherName())) != null) {
+                continue;
+            }
+            SysUser sysUser = new SysUser();
+            sysUser.setUsername(sysTeacher.getTeacherId());
+            sysUser.setNickname(sysTeacher.getTeacherName());
+            sysUser.setCreated(LocalDateTime.now());
+            sysUser.setStatu(Const.STATUS_ON);
+
+            // 默认密码
+            String password = passwordEncoder.encode(Const.DEFULT_PASSWORD);
+            sysUser.setPassword(password);
+
+            // 默认头像
+            sysUser.setAvatar(Const.DEFULT_AVATAR);
+
+            sysUserService.save(sysUser);
+        }
+        return Result.succ("分配用户成功");
+    }
 
 
     @PostMapping("/repass")

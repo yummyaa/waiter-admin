@@ -8,6 +8,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * 功能描述：
  *
@@ -38,6 +43,17 @@ public class TestController {
         System.out.println("阿达" +matches);
         return Result.succ(password);
     }
+
+
+//    public test() {
+//
+//    }
+    public static void main(String[] args) {
+//        Set <!--?sf--> d = new HashSet<>()
+//        List[] df = new List[8];
+
+    }
+
 
 
 

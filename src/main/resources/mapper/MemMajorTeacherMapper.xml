@@ -3,7 +3,7 @@
 <mapper namespace="com.waiterxiaoyy.mapper.MemMajorTeacherMapper">
 
     <select id="getMajorTeacherList" resultType="com.waiterxiaoyy.entity.SysTeacher">
-        select st.id, st.teacher_id, st.teacher_name, st.begin_time, smt.major_id from sys_teacher as st
+        select st.id, st.teacher_id, st.teacher_name, st.begin_time, st.identity_str, smt.major_id from sys_teacher as st
         left join sys_major_teacher as smt
         on st.teacher_id = smt.teacher_id
         where smt.major_id = #{majorId}

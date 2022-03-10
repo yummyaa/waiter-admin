@@ -15,6 +15,7 @@ import com.waiterxiaoyy.service.MemTeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +63,16 @@ public class MemTeacherServiceImpl extends ServiceImpl<MemTeacherMapper, SysTeac
     public Page<SysTeacher> getMajorTeacherList(Page page, Integer majorId, String teacherName) {
 
         Page<SysTeacher> pageData = memMajorTeacherMapper.getMajorTeacherList(page, majorId, teacherName);
+        for(int i = 0; i <pageData.getRecords().size(); i++) {
+            if(pageData.getRecords().get(i).getIdentityStr() != null) {
+                String[] strArray = pageData.getRecords().get(i).getIdentityStr().split(",");
+                List<String> stringList = new ArrayList<>();
+                for(String str: strArray) {
+                    stringList.add(str);
+                }
+                pageData.getRecords().get(i).setIdentity(stringList);
+            }
+        }
         return pageData;
     }
 

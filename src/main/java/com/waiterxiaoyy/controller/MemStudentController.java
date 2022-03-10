@@ -87,6 +87,27 @@ public class MemStudentController extends BaseController {
         return Result.succ("添加学生成功");
     }
 
+    @GetMapping("/getUserById/{studentId}")
+    @PreAuthorize("hasAuthority('mem:stu:update')")
+    public Result getUserById(@PathVariable("studentId") String studentId) {
+
+        SysStudent sysStudent = studentService.getOne(new QueryWrapper<SysStudent>().eq("student_id", studentId));
+
+        return Result.succ(sysStudent);
+    }
+
+
+    @PostMapping("/updateStu")
+    @PreAuthorize("hasAuthority('mem:stu:update')")
+    public Result updateStu(@RequestBody SysStudent sysStudent) {
+        if(studentService.getOne(new QueryWrapper<SysStudent>().eq("student_id", sysStudent.getStudentId()))== null) {
+            return Result.fail("不存在此学生，请保证学号准确");
+        }
+
+        studentService.updateById(sysStudent);
+        return Result.succ("更新成功");
+    }
+
 
     @PostMapping("/upload")
     @PreAuthorize("hasAuthority('mem:stu:add')")

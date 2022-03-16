@@ -4,15 +4,20 @@ import cn.hutool.core.lang.UUID;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.waiterxiaoyy.common.lang.Result;
-import com.waiterxiaoyy.entity.SysDept;
-import com.waiterxiaoyy.entity.SysTermCourse;
+import com.waiterxiaoyy.entity.*;
 import com.waiterxiaoyy.service.SysDeptService;
+import com.waiterxiaoyy.service.SysDistStudentService;
 import com.waiterxiaoyy.service.SysTermCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 功能描述：
@@ -30,6 +35,9 @@ public class CourseController {
 
     @Autowired
     SysDeptService sysDeptService;
+
+    @Autowired
+    SysDistStudentService sysDistStudentService;
 
     @GetMapping("/getTermById/{termId}")
     public Result getTermById(@PathVariable("termId") Long termId) {
@@ -140,5 +148,38 @@ public class CourseController {
                         .like(StrUtil.isNotBlank(query), "name", query));
         return Result.succ(sysTermCourseList);
 
+    }
+
+    @GetMapping("/dist/{id}")
+    public Result info(@PathVariable("id") Long id) {
+        SysTermCourse sysTermCourse = sysTermCourseService.getById(id);
+        // 获取角色相关联的菜单id
+        List<SysDistStudent> sysDistStudents = sysDistStudentService.list(new QueryWrapper<SysDistStudent>().eq("class_id", id));
+        List<String> studentIds = sysDistStudents.stream().map(p -> p.getStudentId()).collect(Collectors.toList());
+
+        sysTermCourse.setStudentIdList(studentIds);
+        return Result.succ(sysTermCourse);
+    }
+
+    @Transactional
+    @PostMapping("/dist/submit/{classId}")
+    public Result info(@PathVariable("classId") Long classId, @RequestBody String[] studentIds) {
+
+        List<SysDistStudent> sysDistStudents = new ArrayList<>();
+
+        Arrays.stream(studentIds).forEach(studentId -> {
+            SysDistStudent sysDistStudent = new SysDistStudent();
+            sysDistStudent.setClassId(classId);
+            sysDistStudent.setStudentId(studentId);
+
+            sysDistStudents.add(sysDistStudent);
+        });
+
+        // 先删除原来的记录，再保存新的
+        sysDistStudentService.remove(new QueryWrapper<SysDistStudent>().eq("class_id", classId));
+        sysDistStudentService.saveBatch(sysDistStudents);
+
+
+        return Result.succ(studentIds);
     }
 }

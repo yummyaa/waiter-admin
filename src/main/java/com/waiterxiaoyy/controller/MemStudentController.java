@@ -5,11 +5,13 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.waiterxiaoyy.common.lang.Result;
 import com.waiterxiaoyy.entity.SysClassStudent;
 import com.waiterxiaoyy.entity.SysStudent;
+import com.waiterxiaoyy.entity.SysTeacherClass;
 import com.waiterxiaoyy.service.MemClassStudentService;
 import com.waiterxiaoyy.service.MemStudentService;
 import org.apache.http.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -136,4 +139,7 @@ public class MemStudentController extends BaseController {
         }
         return Result.succ("删除成功");
     }
+
+
+
 }

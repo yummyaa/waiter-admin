@@ -3,19 +3,20 @@ package com.waiterxiaoyy.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.waiterxiaoyy.common.lang.Result;
-import com.waiterxiaoyy.entity.SysClassStudent;
-import com.waiterxiaoyy.entity.SysMajorTeacher;
-import com.waiterxiaoyy.entity.SysStudent;
-import com.waiterxiaoyy.entity.SysTeacher;
+import com.waiterxiaoyy.entity.*;
 import com.waiterxiaoyy.service.MemMajorTeacherService;
 import com.waiterxiaoyy.service.MemTeacherService;
+import com.waiterxiaoyy.service.SysTeacherClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 功能描述：
@@ -33,6 +34,9 @@ public class MemTeacherController extends BaseController {
 
     @Autowired
     MemMajorTeacherService memMajorTeacherService;
+
+    @Autowired
+    SysTeacherClassService sysTeacherClassService;
 
     @GetMapping("/getColMajorTree")
     @PreAuthorize("hasAuthority('mem:teac:list')")
@@ -114,6 +118,43 @@ public class MemTeacherController extends BaseController {
             memMajorTeacherService.remove(new QueryWrapper<SysMajorTeacher>().eq("teacher_id", sysTeacherList.get(i).getTeacherId()).eq("major_id", sysTeacherList.get(i).getMajorId()));
         }
         return Result.succ("删除成功");
+    }
+
+    @PreAuthorize("hasAuthority('mem:teac:class')")
+    @GetMapping("/dist/{id}")
+    public Result info(@PathVariable("id") Long id) {
+
+        SysTeacher sysTeacher = memTeacherService.getById(id);
+
+        // 获取角色相关联的菜单id
+        List<SysTeacherClass> sysTeacherClasses = sysTeacherClassService.list(new QueryWrapper<SysTeacherClass>().eq("teacher_id", id));
+        List<Long> classIds = sysTeacherClasses.stream().map(p -> p.getClassId()).collect(Collectors.toList());
+
+        sysTeacher.setClassIds(classIds);
+        return Result.succ(sysTeacher);
+    }
+
+    @Transactional
+    @PostMapping("/dist/submit/{teacherId}")
+    @PreAuthorize("hasAuthority('mem:teac:class')")
+    public Result info(@PathVariable("teacherId") Long teacherId, @RequestBody Long[] classIds) {
+
+        List<SysTeacherClass> sysTeacherClasses = new ArrayList<>();
+
+        Arrays.stream(classIds).forEach(classId -> {
+            SysTeacherClass sysTeacherClass = new SysTeacherClass();
+            sysTeacherClass.setClassId(classId);
+            sysTeacherClass.setTeacherId(teacherId);
+
+            sysTeacherClasses.add(sysTeacherClass);
+        });
+
+        // 先删除原来的记录，再保存新的
+        sysTeacherClassService.remove(new QueryWrapper<SysTeacherClass>().eq("teacher_id", teacherId));
+        sysTeacherClassService.saveBatch(sysTeacherClasses);
+
+
+        return Result.succ(classIds);
     }
 
 }

@@ -57,4 +57,7 @@ public class SysTermCourse extends BaseEntity {
     @TableField(exist = false)
     private List<SysTermCourse> children = new ArrayList<>();
 
+    @TableField(exist = false)
+    private List<String> studentIdList = new ArrayList<>();
+
 }

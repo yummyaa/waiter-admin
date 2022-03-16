@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 功能描述：
@@ -29,4 +31,6 @@ public class SysStudent {
 
     @TableField(exist = false)
     private Long classId;
+
+
 }

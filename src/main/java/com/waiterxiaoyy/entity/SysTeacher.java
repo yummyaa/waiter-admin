@@ -7,6 +7,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,6 +39,8 @@ public class SysTeacher extends BaseEntity {
     @TableField(exist = false)
     private Long majorId;
 
+    @TableField(exist = false)
+    private List<Long> classIds = new ArrayList<>();
 
 
 }

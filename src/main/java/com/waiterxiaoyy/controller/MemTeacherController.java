@@ -157,4 +157,12 @@ public class MemTeacherController extends BaseController {
         return Result.succ(classIds);
     }
 
+    @GetMapping("/getTeacherByClassId/{classId}")
+    public Result getTeacherInfoByClassId(@PathVariable("classId") Long classId) {
+        SysTeacherClass sysTeacherClass = sysTeacherClassService.getOne(new QueryWrapper<SysTeacherClass>().eq("class_id", classId));
+        SysTeacher sysTeacher = memTeacherService.getById(sysTeacherClass.getTeacherId());
+        return Result.succ(sysTeacher);
+
+    }
+
 }

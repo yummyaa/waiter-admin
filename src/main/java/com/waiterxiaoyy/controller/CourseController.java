@@ -5,6 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.waiterxiaoyy.common.lang.Result;
 import com.waiterxiaoyy.entity.*;
+import com.waiterxiaoyy.mapper.SysTermCourseMapper;
 import com.waiterxiaoyy.service.SysDeptService;
 import com.waiterxiaoyy.service.SysDistStudentService;
 import com.waiterxiaoyy.service.SysTermCourseService;
@@ -38,6 +39,9 @@ public class CourseController {
 
     @Autowired
     SysDistStudentService sysDistStudentService;
+
+    @Autowired
+    SysTermCourseMapper sysTermCourseMapper;
 
     @GetMapping("/getTermById/{termId}")
     public Result getTermById(@PathVariable("termId") Long termId) {
@@ -182,4 +186,23 @@ public class CourseController {
 
         return Result.succ(studentIds);
     }
+
+
+    /**
+     * 课程详情操作
+     */
+
+    @GetMapping("/getClassStudent/{classId}")
+    public Result getClassStudent(@PathVariable("classId") Long classId) {
+        List<SysStudent> sysStudents = null;
+        try {
+            sysStudents = sysTermCourseMapper.getClassStudent(classId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.succ(sysStudents);
+    }
+
+
+
 }

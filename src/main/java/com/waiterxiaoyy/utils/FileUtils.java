@@ -1,10 +1,14 @@
 package com.waiterxiaoyy.utils;
 
 import cn.hutool.core.map.MapUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.waiterxiaoyy.common.lang.Result;
 import com.waiterxiaoyy.entity.SysFile;
+import com.waiterxiaoyy.entity.SysHomeworkInfo;
 import com.waiterxiaoyy.service.FileService;
+import com.waiterxiaoyy.service.SysHomeworkInfoService;
 import lombok.Data;
+import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -33,8 +37,14 @@ public class FileUtils {
     private FileService tempFileService;
     private static FileService fileService;
 
+    @Autowired
+    private SysHomeworkInfoService sysHomeworkInfoService;
+    private static SysHomeworkInfoService studentHomeworkService;
+
 
     private static String localPath;
+
+
 
     @Value("${waiterxiaoyy.file.LocalPath}")
     public void setLocalPath(String localPath) {
@@ -44,6 +54,7 @@ public class FileUtils {
     @PostConstruct
     public void init(){
         fileService = this.tempFileService;
+        studentHomeworkService = this.sysHomeworkInfoService;
     }
 
 
@@ -91,6 +102,48 @@ public class FileUtils {
             return Result.fail("保存文件失败");
         }
     }
+
+    public static Result saveHomework(MultipartFile homeworkFile, String studentId, Long homeworkId) {
+        try {
+            String tempPath = localPath + "/homework/" + homeworkId;
+            File file = new File(tempPath);
+
+            if(!file.exists()) {
+                file.mkdir();
+            }
+
+            String fileName = homeworkFile.getOriginalFilename(); //获取文件名
+            fileName = getFileName(fileName);
+
+            String path = tempPath + "/" + fileName;
+            file = new File(path);
+            // 保存文件
+            homeworkFile.transferTo(file);
+
+            SysHomeworkInfo sysHomeworkInfo  = studentHomeworkService.getOne(new QueryWrapper<SysHomeworkInfo>().eq("homework_id", homeworkId).eq("student_id", studentId));
+
+
+            SysFile sysFile = new SysFile();
+            sysFile.setName(homeworkFile.getOriginalFilename());
+            sysFile.setUrl(path);
+            sysFile.setType(2);
+            sysFile.setBelongId(homeworkId);
+            sysFile.setCreated(LocalDateTime.now());
+            sysFile.setStatu(1);
+            fileService.save(sysFile);
+
+            sysHomeworkInfo.setFileUrl(path);
+            sysHomeworkInfo.setStatu(1);
+            sysHomeworkInfo.setUpdated(LocalDateTime.now());
+            studentHomeworkService.updateById(sysHomeworkInfo);
+            return Result.succ("提交作业成功");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.fail("提交作业失败");
+        }
+    }
+
 
     /**
      * 文件名后缀前添加一个时间戳

@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.waiterxiaoyy.entity.SysHomeworkInfo;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * 功能描述：
  *
@@ -13,4 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface SysHomeworkInfoMapper extends BaseMapper<SysHomeworkInfo> {
+    List<SysHomeworkInfo> getSubmitInfo(Long homeworkId);
 }

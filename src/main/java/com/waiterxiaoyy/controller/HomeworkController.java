@@ -6,6 +6,7 @@ import com.waiterxiaoyy.common.lang.Result;
 import com.waiterxiaoyy.entity.SysClassHomework;
 import com.waiterxiaoyy.entity.SysHomeworkInfo;
 import com.waiterxiaoyy.entity.SysStudent;
+import com.waiterxiaoyy.mapper.SysHomeworkInfoMapper;
 import com.waiterxiaoyy.mapper.SysTermCourseMapper;
 import com.waiterxiaoyy.service.SysClassHomeworkService;
 import com.waiterxiaoyy.service.SysHomeworkInfoService;
@@ -37,6 +38,9 @@ public class HomeworkController {
     @Autowired
     SysTermCourseMapper sysTermCourseMapper;
 
+    @Autowired
+    SysHomeworkInfoMapper sysHomeworkInfoMapper;
+
     @GetMapping("/getHomeWorkById/{id}")
     public Result getHomeWorkById(@PathVariable("id") Long homeworkId) {
         SysClassHomework sysClassHomeworks = sysClassHomeworkService.getById(homeworkId);
@@ -59,14 +63,16 @@ public class HomeworkController {
         sysClassHomeworkService.save(sysClassHomework);
         List<SysStudent> sysStudentList = sysTermCourseMapper.getClassStudent(sysClassHomework.getClassId());
         List<SysHomeworkInfo> sysHomeworkInfoList = new ArrayList<>();
-        SysHomeworkInfo sysHomeworkInfo = new SysHomeworkInfo();
-        sysStudentList.forEach((sysStudent -> {
+        SysHomeworkInfo sysHomeworkInfo = null;
+        for(int i = 0; i < sysStudentList.size(); i++) {
+            sysHomeworkInfo = new SysHomeworkInfo();
             sysHomeworkInfo.setStatu(0);
             sysHomeworkInfo.setHomeworkId(sysClassHomework.getId());
-            sysHomeworkInfo.setStudentId(sysStudent.getStudentId());
+            sysHomeworkInfo.setStudentId(sysStudentList.get(i).getStudentId());
             sysHomeworkInfo.setCreated(LocalDateTime.now());
             sysHomeworkInfoList.add(sysHomeworkInfo);
-        }));
+        }
+
         sysHomeworkInfoService.saveBatch(sysHomeworkInfoList);
         return Result.succ(sysClassHomework);
     }
@@ -77,5 +83,18 @@ public class HomeworkController {
         sysClassHomework.setUpdated(LocalDateTime.now());
         sysClassHomeworkService.updateById(sysClassHomework);
         return Result.succ(sysClassHomework);
+    }
+
+    @GetMapping("/delete/{id}")
+    public Result delete(@PathVariable("id") Long homeworkId) {
+        sysHomeworkInfoService.remove(new QueryWrapper<SysHomeworkInfo>().eq("homework_id", homeworkId));
+        sysClassHomeworkService.removeById(homeworkId);
+        return Result.succ("删除成功");
+    }
+
+    @GetMapping("/getSubmitInfo/{id}")
+    public Result getSubmitInfo(@PathVariable("id") Long homeworkId) {
+        List<SysHomeworkInfo> sysHomeworkInfoList = sysHomeworkInfoMapper.getSubmitInfo(homeworkId);
+        return Result.succ(sysHomeworkInfoList);
     }
 }

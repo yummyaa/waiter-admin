@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.waiterxiaoyy.mapper.SysHomeworkInfoMapper">
+    <select id="getSubmitInfo" parameterType="java.lang.Long" resultType="com.waiterxiaoyy.entity.SysHomeworkInfo">
+        select sys_homework_info.*, sys_student.student_name from sys_homework_info, sys_student
+        where sys_homework_info.student_id = sys_student.student_id and  sys_homework_info.homework_id = #{homeworkId}
+    </select>
 </mapper>

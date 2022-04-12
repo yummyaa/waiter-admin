@@ -26,30 +26,35 @@ public class AttendanceServiceImpl implements AttendanceService {
     @Autowired
     HttpClientUtil httpClientUtil;
 
-    @Override
-    public Result recognize(FaceDto faceDto) {
-        try {
-            String url = "http://172.27.184.8:8899/url";
-            Map map = new HashMap();
-            map.put("username", faceDto.getStudentId());
-            map.put("nowimage", faceDto.getNowImage());
-            List<PythonDto> jsonArray = JSONArray.parseArray(HttpClientUtil.doPost(url, map), PythonDto.class);
+/**
+ * Java调用Python接口
+ * @param faceDto
+ * @return
+ */
+@Override
+public Result recognize(FaceDto faceDto) {
+    try {
+        String url = "http://172.27.184.8:8899/url";
+        Map map = new HashMap();
+        map.put("username", faceDto.getStudentId());
+        map.put("nowimage", faceDto.getNowImage());
+        List<PythonDto> jsonArray = JSONArray.parseArray(HttpClientUtil.doPost(url, map), PythonDto.class);
 
-            if(jsonArray.size() <= 0) {
-                return Result.fail("服务器错误");
-            }
-            PythonDto pythonDto = jsonArray.get(0);
-            if(pythonDto.getCode() == 200) {
-                return Result.succ(200, "同一个人" ,null);
-            } else if(pythonDto.getCode() == 201) {
-                return Result.succ(200, "不是同一个人", null);
-            } else {
-                return Result.fail("服务器错误");
-            }
-        } catch (Exception e) {
+        if(jsonArray.size() <= 0) {
             return Result.fail("服务器错误");
         }
+        PythonDto pythonDto = jsonArray.get(0);
+        if(pythonDto.getCode() == 200) {
+            return Result.succ(200, "同一个人" ,null);
+        } else if(pythonDto.getCode() == 201) {
+            return Result.succ(200, "不是同一个人", null);
+        } else {
+            return Result.fail("服务器错误");
+        }
+    } catch (Exception e) {
+        return Result.fail("服务器错误");
     }
+}
 
 
 }

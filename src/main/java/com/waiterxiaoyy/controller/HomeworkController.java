@@ -56,11 +56,17 @@ public class HomeworkController {
         return Result.succ(sysClassHomeworks);
     }
 
+    /**
+     * 教师发布作业
+     * @param sysClassHomework
+     * @return
+     */
     @PostMapping("/save")
     @PreAuthorize("hasAuthority('course:home:edit')")
     public Result save(@RequestBody SysClassHomework sysClassHomework) {
-        sysClassHomework.setCreated(LocalDateTime.now());
-        sysClassHomeworkService.save(sysClassHomework);
+        sysClassHomework.setCreated(LocalDateTime.now()); // 设置创建时间
+        sysClassHomeworkService.save(sysClassHomework); // 保存到本地
+        // 在中间表中加入血神作业完成情况
         List<SysStudent> sysStudentList = sysTermCourseMapper.getClassStudent(sysClassHomework.getClassId());
         List<SysHomeworkInfo> sysHomeworkInfoList = new ArrayList<>();
         SysHomeworkInfo sysHomeworkInfo = null;
@@ -73,6 +79,7 @@ public class HomeworkController {
             sysHomeworkInfoList.add(sysHomeworkInfo);
         }
 
+        // 保存作业完成情况到本地
         sysHomeworkInfoService.saveBatch(sysHomeworkInfoList);
         return Result.succ(sysClassHomework);
     }

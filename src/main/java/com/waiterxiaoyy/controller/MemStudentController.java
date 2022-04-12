@@ -57,13 +57,21 @@ public class MemStudentController extends BaseController {
     }
 
 
+    /**
+     * 将学生未录入的学生名单加入到系统中，此接口提高融合单个录入和批量录入
+     * @param sysStudentList
+     * @return
+     */
     @PostMapping("/addStuInClass")
     @PreAuthorize("hasAuthority('mem:stu:add')")
     public Result addStudentInClass(@RequestBody List<SysStudent> sysStudentList) {
+        // 单个录入
         if(sysStudentList.size() == 1) {
+            // 如果该学号已经存在某个班级的关联信息则录入失败
             if(memClassStudentService.selectOne(sysStudentList.get(0)) != null) {
                 return Result.fail("学生关联信息已存在");
             }
+            // 如果该学号已经存在学生表中，则录入失败
             if(studentService.getOne(new QueryWrapper<SysStudent>().eq("student_id", sysStudentList.get(0).getStudentId())) != null) {
                 return Result.fail("学生信息已存在");
             }
@@ -75,7 +83,7 @@ public class MemStudentController extends BaseController {
             sysClassStudent.setClassId(sysStudentList.get(0).getClassId());
             memClassStudentService.save(sysClassStudent);
             return Result.succ("添加学生成功");
-        } else if(sysStudentList.size() >= 1) {
+        } else if(sysStudentList.size() >= 1) { // 批量录入
             studentService.saveBatch(sysStudentList);
             List<SysClassStudent> sysClassStudents = new ArrayList<>();
             for(int i = 0; i < sysStudentList.size(); i++) {
@@ -139,7 +147,4 @@ public class MemStudentController extends BaseController {
         }
         return Result.succ("删除成功");
     }
-
-
-
 }

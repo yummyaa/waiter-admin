@@ -37,21 +37,21 @@ public class AuthController extends BaseController {
 
     @GetMapping("/captcha")
     public Result captcha() throws IOException {
-        String key = UUID.randomUUID().toString();
-        String code = producer.createText();
+        String key = UUID.randomUUID().toString(); // 设置一个随机key值
+        String code = producer.createText(); // 使用验证码工具生成一个code
 
-        BufferedImage image = producer.createImage(code);
+        BufferedImage image = producer.createImage(code); // 将code转成图片字节流
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
-        ImageIO.write(image, "jpg", outputStream);
+        ImageIO.write(image, "jpg", outputStream); // 将图片字节流输出为jpg格式的图片
 
-        BASE64Encoder encoder = new BASE64Encoder();
+        BASE64Encoder encoder = new BASE64Encoder(); // 将图片转成base64编码
         String str = "data:image/jpeg;base64,";
 
-        String base64Img = str +encoder.encode(outputStream.toByteArray());
+        String base64Img = str +encoder.encode(outputStream.toByteArray()); // 将图片转成base64编码
 
-        redisUtil.hset(Const.CAPTCHA_KEY, key, code, 120 );
+        redisUtil.hset(Const.CAPTCHA_KEY, key, code, 120 ); // 在Redis缓存中存入key-code
 
         return Result.succ(
                 MapUtil.builder()

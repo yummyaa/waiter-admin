@@ -31,11 +31,20 @@ public class CaptchaFilter extends OncePerRequestFilter {
     LoginFailureHandler loginFailureHandler;
 
 
+    /**
+     * 登录拦截检验验证码
+     * @param httpServletRequest
+     * @param httpServletResponse
+     * @param filterChain
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
 
-        String url = httpServletRequest.getRequestURI();
+        String url = httpServletRequest.getRequestURI(); // 获取请求路径
 
+        // 如果是登录接口，请拦截进行操作
         if(url.equals("/login") && httpServletRequest.getMethod().equals("POST")) {
             // 校验验证码
             try {
@@ -49,9 +58,13 @@ public class CaptchaFilter extends OncePerRequestFilter {
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
 
+    /**
+     * 将验证码与Redis中存储进行比对
+     * @param httpServletRequest
+     */
     private void validate(HttpServletRequest httpServletRequest) {
-        String code = httpServletRequest.getParameter("code");
-        String key = httpServletRequest.getParameter("token");
+        String code = httpServletRequest.getParameter("code"); // 从请求体中取出验证码
+        String key = httpServletRequest.getParameter("token"); // 从请求体中取出key值
 
         if(StringUtils.isBlank(code) || StringUtils.isBlank(key)) {
             throw new CaptchaException("验证码错误");

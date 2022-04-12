@@ -48,7 +48,5 @@ public class FileController {
             return result;
         }
         return Result.fail("保存图片失败");
-
-
     }
 }

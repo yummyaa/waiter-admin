@@ -157,7 +157,6 @@ public class CourseController {
     @GetMapping("/dist/{id}")
     public Result info(@PathVariable("id") Long id) {
         SysTermCourse sysTermCourse = sysTermCourseService.getById(id);
-        // 获取角色相关联的菜单id
         List<SysDistStudent> sysDistStudents = sysDistStudentService.list(new QueryWrapper<SysDistStudent>().eq("class_id", id));
         List<String> studentIds = sysDistStudents.stream().map(p -> p.getStudentId()).collect(Collectors.toList());
 
@@ -167,7 +166,7 @@ public class CourseController {
 
     @Transactional
     @PostMapping("/dist/submit/{classId}")
-    public Result info(@PathVariable("classId") Long classId, @RequestBody String[] studentIds) {
+    public Result distStudent(@PathVariable("classId") Long classId, @RequestBody String[] studentIds) {
 
         List<SysDistStudent> sysDistStudents = new ArrayList<>();
 
@@ -182,8 +181,6 @@ public class CourseController {
         // 先删除原来的记录，再保存新的
         sysDistStudentService.remove(new QueryWrapper<SysDistStudent>().eq("class_id", classId));
         sysDistStudentService.saveBatch(sysDistStudents);
-
-
         return Result.succ(studentIds);
     }
 

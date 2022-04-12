@@ -26,12 +26,19 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
     SysUserService sysUserService;
 
+    /**
+     * 对用户名和密码进行校验
+     * @param username
+     * @return
+     * @throws UsernameNotFoundException
+     */
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        SysUser sysUser = sysUserService.getByUsername(username);
+        SysUser sysUser = sysUserService.getByUsername(username); // 从数据库中取出用户
 
+        //若用户不存在则说明用户名或者密码不正确
         if(sysUser == null) {
             throw new UsernameNotFoundException("用户名或者密码不正确");
 

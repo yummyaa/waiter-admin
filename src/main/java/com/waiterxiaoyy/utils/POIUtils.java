@@ -31,6 +31,12 @@ public class POIUtils {
     private final static String xls = "xls";
     private final static String xlsx = "xlsx";
 
+    /**
+     * 根据传入的Excel解析出学生名单
+     * @param multipartFile
+     * @return
+     * @throws Exception
+     */
     public static List<SysStudent> getClassStudentList(MultipartFile multipartFile) throws Exception {
         Workbook workbook = getWorkBook(multipartFile);
 

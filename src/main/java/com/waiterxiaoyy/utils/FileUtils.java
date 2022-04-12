@@ -103,46 +103,56 @@ public class FileUtils {
         }
     }
 
-    public static Result saveHomework(MultipartFile homeworkFile, String studentId, Long homeworkId) {
-        try {
-            String tempPath = localPath + "/homework/" + homeworkId;
-            File file = new File(tempPath);
+/**
+ * 保存作业
+ * @param homeworkFile
+ * @param studentId
+ * @param homeworkId
+ * @return
+ */
+public static Result saveHomework(MultipartFile homeworkFile, String studentId, Long homeworkId) {
+    try {
+        String tempPath = localPath + "/homework/" + homeworkId;
+        File file = new File(tempPath);
 
-            if(!file.exists()) {
-                file.mkdir();
-            }
-
-            String fileName = homeworkFile.getOriginalFilename(); //获取文件名
-            fileName = getFileName(fileName);
-
-            String path = tempPath + "/" + fileName;
-            file = new File(path);
-            // 保存文件
-            homeworkFile.transferTo(file);
-
-            SysHomeworkInfo sysHomeworkInfo  = studentHomeworkService.getOne(new QueryWrapper<SysHomeworkInfo>().eq("homework_id", homeworkId).eq("student_id", studentId));
-
-
-            SysFile sysFile = new SysFile();
-            sysFile.setName(homeworkFile.getOriginalFilename());
-            sysFile.setUrl(path);
-            sysFile.setType(2);
-            sysFile.setBelongId(homeworkId);
-            sysFile.setCreated(LocalDateTime.now());
-            sysFile.setStatu(1);
-            fileService.save(sysFile);
-
-            sysHomeworkInfo.setFileUrl(path);
-            sysHomeworkInfo.setStatu(1);
-            sysHomeworkInfo.setUpdated(LocalDateTime.now());
-            studentHomeworkService.updateById(sysHomeworkInfo);
-            return Result.succ("提交作业成功");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Result.fail("提交作业失败");
+        if(!file.exists()) {
+            file.mkdir();
         }
+
+        String fileName = homeworkFile.getOriginalFilename(); //获取文件名
+        fileName = getFileName(fileName);
+
+        String path = tempPath + "/" + fileName;
+        file = new File(path);
+        // 保存文件
+        homeworkFile.transferTo(file);
+
+        // 取出中间表的学生提交作业状态
+        SysHomeworkInfo sysHomeworkInfo  = studentHomeworkService.getOne(new QueryWrapper<SysHomeworkInfo>().eq("homework_id", homeworkId).eq("student_id", studentId));
+
+
+        SysFile sysFile = new SysFile();
+        sysFile.setName(homeworkFile.getOriginalFilename());
+        sysFile.setUrl(path);
+        sysFile.setType(2);
+        sysFile.setBelongId(homeworkId);
+        sysFile.setCreated(LocalDateTime.now());
+        sysFile.setStatu(1);
+        fileService.save(sysFile);
+
+        sysHomeworkInfo.setFileUrl(path);
+        sysHomeworkInfo.setStatu(1);
+        sysHomeworkInfo.setUpdated(LocalDateTime.now());
+
+        // 更新中间表
+        studentHomeworkService.updateById(sysHomeworkInfo);
+        return Result.succ("提交作业成功");
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        return Result.fail("提交作业失败");
     }
+}
 
 
     /**

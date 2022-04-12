@@ -27,6 +27,13 @@ public class SysFaceServiceImpl extends ServiceImpl<SysFaceMapper, SysFace> impl
     private String localPath;
 
 
+    /**
+     * 保存人脸数据，将人脸数据转成图片保存到数据库中
+     * @param uploadFile
+     * @param studentId
+     * @return
+     * @throws IOException
+     */
     @Override
     public Result saveFace(MultipartFile uploadFile, String studentId) throws IOException {
         String tempPath = localPath + "/faceImg";
@@ -55,9 +62,6 @@ public class SysFaceServiceImpl extends ServiceImpl<SysFaceMapper, SysFace> impl
             updateById(sysFace);
         }
 
-        System.out.println(localPath);
-        System.out.println(studentId);
-        System.out.println(file);
         return Result.succ(sysFace);
     }
 }

@@ -4,13 +4,15 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.waiterxiaoyy.common.lang.Result;
-import com.waiterxiaoyy.entity.SysDept;
-import com.waiterxiaoyy.entity.SysTermCourse;
+import com.waiterxiaoyy.entity.*;
 import com.waiterxiaoyy.mapper.SysTermCourseMapper;
-import com.waiterxiaoyy.service.SysTermCourseService;
+import com.waiterxiaoyy.service.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -23,6 +25,14 @@ import java.util.List;
 @Service
 public class SysTermCourseServiceImpl extends ServiceImpl<SysTermCourseMapper, SysTermCourse> implements SysTermCourseService {
 
+    @Autowired
+    SysDistStudentService sysDistStudentService;
+
+    @Autowired
+    SysTeacherClassService sysTeacherClassService;
+
+    @Autowired
+    MemTeacherService memTeacherService;
 
     @Override
     public Result getTermCourseClass() {
@@ -31,6 +41,44 @@ public class SysTermCourseServiceImpl extends ServiceImpl<SysTermCourseMapper, S
         return Result.succ(200, "", tree);
     }
 
+    @Override
+    public Result getStuTermCourseList(String username) {
+        List<SysTermCourse> sysTermCourseList = this.list(new QueryWrapper<SysTermCourse>().orderByAsc("orderNum"));
+        List<SysDistStudent> sysDistStudents = sysDistStudentService.list(new QueryWrapper<SysDistStudent>().eq("student_id", username));
+        HashSet<Long> classSet = new HashSet<>();
+        for(SysDistStudent student : sysDistStudents) {
+            classSet.add(student.getClassId());
+        }
+        Iterator<SysTermCourse> iterator = sysTermCourseList.iterator();
+        while(iterator.hasNext()) {
+            SysTermCourse sysTermCourse = iterator.next();
+            if((sysTermCourse.getType() == 2 && !classSet.contains(sysTermCourse.getId())) || sysTermCourse.getStatu() == 0) {
+                iterator.remove();
+            }
+        }
+        List<SysTermCourse> tree = builTree(sysTermCourseList);
+        return Result.succ(200, "", tree);
+    }
+
+    @Override
+    public Result getTeacTermCourseList(String username) {
+        List<SysTermCourse> sysTermCourseList = this.list(new QueryWrapper<SysTermCourse>().orderByAsc("orderNum"));
+        SysTeacher sysTeacher = memTeacherService.getOne(new QueryWrapper<SysTeacher>().eq("teacher_id", username));
+        List<SysTeacherClass> sysTeacherClasses = sysTeacherClassService.list(new QueryWrapper<SysTeacherClass>().eq("teacher_id", sysTeacher.getId()));
+        HashSet<Long> classSet = new HashSet<>();
+        for(SysTeacherClass teacher : sysTeacherClasses) {
+            classSet.add(teacher.getClassId());
+        }
+        Iterator<SysTermCourse> iterator = sysTermCourseList.iterator();
+        while(iterator.hasNext()) {
+            SysTermCourse sysTermCourse = iterator.next();
+            if((sysTermCourse.getType() == 2 && !classSet.contains(sysTermCourse.getId())) || sysTermCourse.getStatu() == 0) {
+                iterator.remove();
+            }
+        }
+        List<SysTermCourse> tree = builTree(sysTermCourseList);
+        return Result.succ(200, "", tree);
+    }
 
 
     //建立树形结构

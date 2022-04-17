@@ -42,9 +42,11 @@ public class CommentController {
         for(int i = 0; i < sysCommentList.size(); i++) {
             SysUser sysUser = sysUserService.getById(sysCommentList.get(i).getUserId());
             sysCommentList.get(i).setUsername(sysUser.getUsername());
+            sysCommentList.get(i).setNickname(sysUser.getNickname());
             for(int j = 0; j < sysCommentList.get(i).getChildren().size(); j++) {
                 SysUser sysUser1 = sysUserService.getById(sysCommentList.get(i).getChildren().get(j).getUserId());
                 sysCommentList.get(i).getChildren().get(j).setUsername(sysUser1.getUsername());
+                sysCommentList.get(i).getChildren().get(j).setNickname(sysUser1.getNickname());
             }
         }
         return Result.succ(sysCommentList);

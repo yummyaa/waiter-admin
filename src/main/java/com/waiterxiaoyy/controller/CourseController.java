@@ -11,6 +11,7 @@ import com.waiterxiaoyy.service.SysDistStudentService;
 import com.waiterxiaoyy.service.SysTermCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -103,6 +104,18 @@ public class CourseController {
     @GetMapping("/getTermCourse")
     public Result getTermCourse() {
         return sysTermCourseService.getTermCourseClass();
+    }
+
+    @GetMapping("/getStuTermCourseList")
+    public Result getStuTermCourseList() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+        return sysTermCourseService.getStuTermCourseList(username);
+    }
+
+    @GetMapping("/getTeacTermCourseList")
+    public Result getTeacTermCourseList() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+        return sysTermCourseService.getTeacTermCourseList(username);
     }
 
     @PostMapping("/updateCourse")
@@ -199,7 +212,5 @@ public class CourseController {
         }
         return Result.succ(sysStudents);
     }
-
-
 
 }

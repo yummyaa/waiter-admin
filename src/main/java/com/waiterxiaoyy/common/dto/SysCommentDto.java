@@ -17,6 +17,7 @@ public class SysCommentDto implements Serializable {
 	private Long classId;
 	private String content;
 	private String username;
+	private String nickname;
 	private int statu;
 	private int type;
 	private String created;

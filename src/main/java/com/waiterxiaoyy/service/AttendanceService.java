@@ -10,6 +10,6 @@ import com.waiterxiaoyy.common.lang.Result;
  * @Date 2022/1/22 20:34
  * @Version 1.0
  */
-public interface AttendanceService {
+public interface AttendanceService  {
     Result recognize(FaceDto faceDto);
 }

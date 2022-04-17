@@ -35,4 +35,7 @@ public class SysComment extends BaseEntity  {
 
     @TableField(exist = false)
     private String username;
+    @TableField(exist = false)
+    private String nickname;
+
 }

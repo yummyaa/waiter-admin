@@ -2,36 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1570c830-4459-4625-a92f-05669e49d897" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/common/dto/SysCommentDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/CommentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/entity/SysComment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/mapper/SysCommentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/SysCommentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/impl/SysCommentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/entity/SysAttendanceInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/entity/SysClassAttendance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/mapper/SysAttendanceInfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/mapper/SysClassAttendanceMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/SysAttendanceInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/SysClassAttendanceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/impl/SysAttendacneInfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/impl/SysClassAttendanceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysAttendanceInfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/common/dto/SysCommentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/common/dto/SysCommentDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/AttendanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/AttendanceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/CommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/CourseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/HomeworkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/HomeworkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/MemStudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/controller/MemStudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/security/CaptchaFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/security/CaptchaFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/security/LoginFailureHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/security/LoginFailureHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/security/UserDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/security/UserDetailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/impl/AttendanceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/impl/AttendanceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/impl/SysFaceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/impl/SysFaceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/impl/SysMenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/impl/SysMenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/entity/SysComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/entity/SysComment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/AttendanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/AttendanceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/SysTermCourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/SysTermCourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/impl/SysTermCourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/service/impl/SysTermCourseServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/utils/POIUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/waiterxiaoyy/utils/POIUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/common/dto/SysCommentDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/common/dto/SysCommentDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/AttendanceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/AttendanceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/CommentController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/CourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/CourseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/HomeworkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/HomeworkController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/MemStudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/MemStudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/security/CaptchaFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/security/CaptchaFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/security/UserDetailServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/security/UserDetailServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/service/impl/AttendanceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/service/impl/AttendanceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/service/impl/SysFaceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/service/impl/SysFaceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/service/impl/SysMenuServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/service/impl/SysMenuServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/entity/SysComment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/entity/SysComment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/service/SysTermCourseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/service/SysTermCourseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/service/impl/SysTermCourseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/service/impl/SysTermCourseServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/utils/FileUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/utils/FileUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/utils/POIUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/waiterxiaoyy/utils/POIUtils.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,11 +86,11 @@
       <recent name="E:\11-graduation-project\Waiter-Admin\src\main\resources\mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.waiterxiaoyy.common.dto" />
       <recent name="com.waiterxiaoyy.service.impl" />
-      <recent name="com.waiterxiaoyy.mapper" />
       <recent name="com.waiterxiaoyy.service" />
+      <recent name="com.waiterxiaoyy.mapper" />
       <recent name="com.waiterxiaoyy.entity" />
+      <recent name="com.waiterxiaoyy.common.dto" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\11-graduation-project\Waiter-Admin\src\main\resources\excel-templete" />
@@ -173,6 +173,13 @@
       <workItem from="1648415567362" duration="4956000" />
       <workItem from="1648445789036" duration="10632000" />
       <workItem from="1649720666238" duration="11408000" />
+      <workItem from="1649815106577" duration="8961000" />
+      <workItem from="1649897141677" duration="4156000" />
+      <workItem from="1650005192237" duration="2040000" />
+      <workItem from="1650074934375" duration="6799000" />
+      <workItem from="1650162061785" duration="6279000" />
+      <workItem from="1650179014170" duration="5315000" />
+      <workItem from="1650185909526" duration="3925000" />
     </task>
     <servers />
   </component>
@@ -185,10 +192,10 @@
     </state>
     <state x="486" y="220" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1646651656953" />
     <state x="486" y="220" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1645011049562" />
-    <state x="574" y="127" key="#com.intellij.ide.util.MemberChooser" timestamp="1649729244250">
+    <state x="574" y="127" key="#com.intellij.ide.util.MemberChooser" timestamp="1650181433824">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="574" y="127" key="#com.intellij.ide.util.MemberChooser/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649729244250" />
+    <state x="574" y="127" key="#com.intellij.ide.util.MemberChooser/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650181433824" />
     <state x="574" y="127" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1647430101560" />
     <state x="380" y="342" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1648288277972">
       <screen x="0" y="0" width="1536" height="834" />
@@ -211,84 +218,87 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1642846639754" />
-    <state width="1493" height="185" key="GridCell.Tab.0.bottom" timestamp="1649773183085">
+    <state width="1493" height="83" key="GridCell.Tab.0.bottom" timestamp="1650187977863">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.0.bottom/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649773183085" />
-    <state width="1493" height="516" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1648486286968" />
-    <state width="1493" height="185" key="GridCell.Tab.0.center" timestamp="1649773183085">
+    <state width="1493" height="83" key="GridCell.Tab.0.bottom/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650187977863" />
+    <state width="1342" height="122" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1650035537569" />
+    <state width="1493" height="83" key="GridCell.Tab.0.center" timestamp="1650187977862">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.0.center/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649773183085" />
-    <state width="1493" height="516" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1648486286968" />
-    <state width="1493" height="185" key="GridCell.Tab.0.left" timestamp="1649773183085">
+    <state width="1493" height="83" key="GridCell.Tab.0.center/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650187977862" />
+    <state width="1342" height="122" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1650035537569" />
+    <state width="1493" height="83" key="GridCell.Tab.0.left" timestamp="1650187977862">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.0.left/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649773183085" />
-    <state width="1493" height="516" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1648486286968" />
-    <state width="1493" height="185" key="GridCell.Tab.0.right" timestamp="1649773183085">
+    <state width="1493" height="83" key="GridCell.Tab.0.left/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650187977862" />
+    <state width="1342" height="122" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1650035537569" />
+    <state width="1493" height="83" key="GridCell.Tab.0.right" timestamp="1650187977862">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.0.right/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649773183085" />
-    <state width="1493" height="516" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1648486286968" />
-    <state width="1493" height="185" key="GridCell.Tab.1.bottom" timestamp="1649773183085">
+    <state width="1493" height="83" key="GridCell.Tab.0.right/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650187977862" />
+    <state width="1342" height="122" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1650035537569" />
+    <state width="1493" height="83" key="GridCell.Tab.1.bottom" timestamp="1650187977696">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.1.bottom/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649773183085" />
-    <state width="1493" height="516" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1648486286969" />
-    <state width="1493" height="185" key="GridCell.Tab.1.center" timestamp="1649773183085">
+    <state width="1493" height="83" key="GridCell.Tab.1.bottom/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650187977696" />
+    <state width="1342" height="122" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1650035537569" />
+    <state width="1493" height="83" key="GridCell.Tab.1.center" timestamp="1650187977696">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.1.center/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649773183085" />
-    <state width="1493" height="516" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1648486286968" />
-    <state width="1493" height="185" key="GridCell.Tab.1.left" timestamp="1649773183085">
+    <state width="1493" height="83" key="GridCell.Tab.1.center/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650187977696" />
+    <state width="1342" height="122" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1650035537569" />
+    <state width="1493" height="83" key="GridCell.Tab.1.left" timestamp="1650187977696">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.1.left/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649773183085" />
-    <state width="1493" height="516" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1648486286968" />
-    <state width="1493" height="185" key="GridCell.Tab.1.right" timestamp="1649773183085">
+    <state width="1493" height="83" key="GridCell.Tab.1.left/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650187977696" />
+    <state width="1342" height="122" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1650035537569" />
+    <state width="1493" height="83" key="GridCell.Tab.1.right" timestamp="1650187977696">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.1.right/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649773183085" />
-    <state width="1493" height="516" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1648486286969" />
-    <state width="1493" height="185" key="GridCell.Tab.2.bottom" timestamp="1649773183086">
+    <state width="1493" height="83" key="GridCell.Tab.1.right/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650187977696" />
+    <state width="1342" height="122" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1650035537569" />
+    <state width="1493" height="83" key="GridCell.Tab.2.bottom" timestamp="1650187977697">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.2.bottom/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649773183086" />
-    <state width="1493" height="516" key="GridCell.Tab.2.bottom/0.0.1536.834@0.0.1536.834" timestamp="1648486286969" />
-    <state width="1493" height="185" key="GridCell.Tab.2.center" timestamp="1649773183086">
+    <state width="1493" height="83" key="GridCell.Tab.2.bottom/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650187977697" />
+    <state width="1342" height="122" key="GridCell.Tab.2.bottom/0.0.1536.834@0.0.1536.834" timestamp="1650035537569" />
+    <state width="1493" height="83" key="GridCell.Tab.2.center" timestamp="1650187977697">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.2.center/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649773183086" />
-    <state width="1493" height="516" key="GridCell.Tab.2.center/0.0.1536.834@0.0.1536.834" timestamp="1648486286969" />
-    <state width="1493" height="185" key="GridCell.Tab.2.left" timestamp="1649773183085">
+    <state width="1493" height="83" key="GridCell.Tab.2.center/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650187977697" />
+    <state width="1342" height="122" key="GridCell.Tab.2.center/0.0.1536.834@0.0.1536.834" timestamp="1650035537569" />
+    <state width="1493" height="83" key="GridCell.Tab.2.left" timestamp="1650187977697">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.2.left/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649773183085" />
-    <state width="1493" height="516" key="GridCell.Tab.2.left/0.0.1536.834@0.0.1536.834" timestamp="1648486286969" />
-    <state width="1493" height="185" key="GridCell.Tab.2.right" timestamp="1649773183086">
+    <state width="1493" height="83" key="GridCell.Tab.2.left/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650187977697" />
+    <state width="1342" height="122" key="GridCell.Tab.2.left/0.0.1536.834@0.0.1536.834" timestamp="1650035537569" />
+    <state width="1493" height="83" key="GridCell.Tab.2.right" timestamp="1650187977697">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="185" key="GridCell.Tab.2.right/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649773183086" />
-    <state width="1493" height="516" key="GridCell.Tab.2.right/0.0.1536.834@0.0.1536.834" timestamp="1648486286969" />
+    <state width="1493" height="83" key="GridCell.Tab.2.right/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650187977697" />
+    <state width="1342" height="122" key="GridCell.Tab.2.right/0.0.1536.834@0.0.1536.834" timestamp="1650035537569" />
     <state x="270" y="59" key="SettingsEditor" timestamp="1642846531887">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="270" y="59" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1642846531887" />
-    <state x="381" y="334" key="com.intellij.ide.util.TipDialog" timestamp="1649721109776">
+    <state x="381" y="334" key="com.intellij.ide.util.TipDialog" timestamp="1650185949512">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="381" y="334" key="com.intellij.ide.util.TipDialog/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649721109776" />
+    <state x="381" y="334" key="com.intellij.ide.util.TipDialog/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650185949512" />
     <state x="381" y="334" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1647694713085" />
     <state x="425" y="189" key="run.anything.popup" timestamp="1649732587004">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="425" y="189" key="run.anything.popup/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649732587004" />
     <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1644758294964" />
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1649729222056">
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1650165145982">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1649729222056" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/-1920.0.1536.834/0.0.1536.834@0.0.1536.834" timestamp="1650165145982" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1648463058706" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Waiter_Security_Admin$VueAdminLearnApplication.ic" NAME="VueAdminLearnApplication Coverage Results" MODIFIED="1650095725738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
